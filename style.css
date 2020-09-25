@@ -58,7 +58,8 @@ a
 .quote
 {
     font-family:"Montserrat-light";
-    color:rgb(213, 223, 255);
+    
+    color:rgb(107, 141, 253);
     font-size:17px;
     font-style:italic;
     text-align:left;   
@@ -73,6 +74,6 @@ a
 span
 {   font-size:17px;
     font-family:"Montserrat-medium";
-    color:rgb(81, 122, 255);
+    color:rgb(165, 185, 250);
 
 }
