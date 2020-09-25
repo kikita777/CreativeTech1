@@ -55,3 +55,24 @@ a
 	-webkit-column-gap:40px; /* Safari and Chrome */
 	column-gap:40px;
 }
+.quote
+{
+    font-family:"Montserrat-light";
+    color:rgb(213, 223, 255);
+    font-size:17px;
+    font-style:italic;
+    text-align:left;   
+}
+.quotes
+{
+    width:800px;
+    margin:0 auto;
+    
+}
+
+span
+{   font-size:17px;
+    font-family:"Montserrat-medium";
+    color:rgb(81, 122, 255);
+
+}
