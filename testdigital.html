@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photon connect2</title>
+</head>
+<body>
+    <script src = "https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script>
+let urlQ ="https://api.particle.io/v1/devices/320026000447393035313138/lit_value?access_token=95f25d024b91c0fea97485cdded61e2dad420362"; 
+let urlP="https://api.particle.io/v1/devices/320026000447393035313138/press_value?access_token=95f25d024b91c0fea97485cdded61e2dad420362";
+let urlJ = "https://api.particle.io/v1/devices/1a002f001847393035313138/pot_value?access_token=95f25d024b91c0fea97485cdded61e2dad420362";
+
+let dataQ = "";
+let valueQ;
+let dataP = "";
+let valueP;
+let dataJ = "";
+let valueJ;
+let currentTime,prevTime
+
+let imgB;
+let imgH;
+let imgLB;
+let imgLR;
+let imgBG
+
+
+function preload(){
+  imgB = loadImage("bear.png");
+  imgBG = loadImage("bg.png");
+  imgH = loadImage("heart.png");
+  imgLB = loadImage("blue.png");
+  imgLR = loadImage("red.png");
+  
+  
+}
+
+function setup() {
+  createCanvas(1000, 1000);
+
+}
+
+function draw() {
+ 
+  
+   currentTime = millis() % 1000;
+  if(currentTime < prevTime){
+    dataQ = loadJSON(urlQ, processData);
+    dataJ= loadJSON(urlJ, processData2);
+    dataP = loadJSON(urlP, processData3);
+  }
+  //bgpiv
+  image(imgBG,0,0,1000,1000);
+  
+  //redlight-Qi
+  if (valueQ > 2500){
+    image(imgLR,100,0,valueQ/3,valueQ/3);
+  }
+  
+  //Bluelight-Jen
+  if (valueJ > 1200){
+    image(imgLB,valueJ/4,valueJ/5,valueJ/2,valueJ/2);
+  }
+  
+  //bearpic
+   image(imgB,200,100,800,800);
+  
+  //heart beating - press
+  if(valueP<300)
+   image(imgH,500,450,300-valueP,300-valueP);
+  
+  prevTime = currentTime;
+  
+}
+
+function processData(dataQ){
+               // console.log(dataQ.result);
+                //valueQ = map(parseInt(dataQ.result), 0, 4096, 0, 300);
+                console.log("Qi Light" + dataQ.result); 
+                valueQ = dataQ.result;
+        }
+function processData2(dataJ){
+               //console.log(dataJ.result);
+                //valueJ = map(parseInt(dataJ.result), 0, 4096, 0, 300);
+                console.log("Jen Light" + dataJ.result);
+                valueJ =dataJ.result;
+        }
+
+function processData3(dataP){
+              //console.log(dataP.result);
+              
+  if(dataP.result<1000){
+    valueP = map(parseInt(dataP.result), 0, 1000, 0, 300);}
+  else {
+    valueP=300;
+  }
+              console.log("Qi Press" + valueP); 
+              
+       }
+
+
+    </script>
+</body>
+</html>
