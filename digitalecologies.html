@@ -1,68 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photon connect2</title>
-</head>
-<body>
-    <script src = "https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
-    <script>
-        let url = "https://api.particle.io/v1/devices/320026000447393035313138/lit_value?access_token=b89ef388a13811202793d517754ecb152213996d";
-        https://api.particle.io/v1/devices/320026000447393035313138/lit_value?access_token=45d88a4718a60a6c4a60fdde00384ab9c32a2344
-        let dataQi = " ";
-        let valueQi;
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-sacle=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CreativeTech-kikita</title>
   
-       
-        let url2 = "https://api.particle.io/v1/devices/1a002f001847393035313138/pot_value?access_token=84b28f2cab6a81beaed6206fdaf5c089fac7bc32";
-        let dataJe = " ";
-        let valueJe;
+</head>
+<body >
 
-        let currentTime, prevTime;
-
-
-        function setup(){
-            createCanvas(800,800);
-        }
-
-        function draw(){
-            background(255);
-       
-            currentTime = millis() % 1000;
-            if(currentTime < prevTime){
-                data = loadJSON(url, processData);
-                data2 = loadJSON(url2, processData2);
-           
-            }
-            fill(255, 0, 0);
-            circle(100 , 100, value);
-            fill(255, 110, 0);
-            rect(200 , 200, value2, value2/2);
-        if (datapre > 500){
-           fill(255, 50, 50);
-           circle(300 , 300, 100);
-         }
-            prevTime = currentTime;
-        }
-
-        function processData(data){
-                console.log(data.result);
-                value = map(parseInt(data.result), 0, 4096, 0, width);
-                console.log(value); 
-        }
-        function processData2(data2){
-            console.log(data2.result);
-                value2 = map(parseInt(data2.result), 0, 4096, 0, width);
-                console.log(value2);
-        }
-        function processDatapre(datapre){
-            console.log(datapre.result);
-                valuepre = map(parseInt(datapre.result), 0, 4096, 0, width);
-                console.log(valuepre);
-        }
-
-
-    </script>
+<div style="background-position:center;text-align:center">
+    <h1>DigitalEcologies</h1>
+    <h1>CareBear</h1>
+    <h4>Tools: Particle Photon board, P5.js </h4>
+    <a href="testdigital.html"> Project Page</a> 
+    <br> <br>
+    <iframe src="https://player.vimeo.com/video/487453859" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>   
+         <br> 
+     <div class="quotes">
+    <h2>Ideation</h2>
+     <p> CareBear is an interactive physical + digital creature. I recommend you to place it on your bedside table. When you see the blue light is on, that means the room light is turned on in your partner's place. Try to hold its hand, then you'll see the red light turned on. And this intimate action will also be sent to your partners board and can be noticed in the form of light color changing. It is also connected to the webpage, a digital version, revealing the unspoken, hidden feeling of this little bear. You'll see the interactive warm background light and vibrate heart beating.
+     </p>
+     <br>
+    
+     <h2>Structures</h2>
+     <img src="bear-press.JPG" alt="S1" width="400" height="750">
+     <img src="bear-sensor.JPG" alt="S1" width="400" height="750">
+     <br>
+     <h2>Initial Thoughts</h2>
+     <img src="digital draft.png" alt="S1" width="800" height="400">
+     <p>Use the LEDs and pressure sensors and motor to build the creature. It's a little creature observing the status of the laptop. Led and motor will respond to the pressing of some keyboard like "!""?""0"(lucky number). Yes,it is super "emotional"</p>
+     <br> <br>
+     <h2>Reflections</h2>
+     <p> 
+    </p>
+    </div>
+</div>
+<br><br><br><br><br><br><br><br>
+<div class="quotes">
+    <div style="background-position:center;text-align:center">
+        <a href="index.html"> Homepage</a> <br><br>
+        <a href="readingrepo.html"> Reading Repo</a> <br><br>
+        <a href="projshare.html"> Project Sharing & Others</a> <br><br>
+        <a href="watchdog.html"> Creative Kluging - MiniProj - Watch Dog</a> <br><br>
+        <a href="simulation.html"> Unity Workshop - Simulation - Virtual Migrating</a> <br><br>
+        <a href="drops.html"> LiveCode Shader Workshop - Drops</a> <br><br>
+    </div>
 </body>
 </html>
