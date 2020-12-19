@@ -35,6 +35,22 @@ p
     text-align:left;
     line-height:150%;
 }
+h4
+{
+    font-family:"Montserrat-medium";
+    color:rgb(250, 158, 253);
+    font-size:20px;
+    text-align:center;
+  
+}
+h5
+{
+    font-family:"Consolas";
+    color:rgb(228, 228, 228);
+    font-size:20px;
+    text-align:center;
+  
+}
 
 a
 { 

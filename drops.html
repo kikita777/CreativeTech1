@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-sacle=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CreativeTech-kikita</title>
+  
+</head>
+<body >
+
+
+    <div style="background-position:center;text-align:center">
+        <h1>Livecode Shader Workshop</h1>
+        <iframe src="https://player.vimeo.com/video/489824547" width="640" height="564" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <h2>Demo - Drops</h2>
+        <div class="quotes">
+        <h4>Tools: OpenGL, LiveCode, The Force </h4>
+        
+        <p>DROPS, is a live sound reactive shader, based on OpenGL, coded on The Force. Project uses the sound of the drops to trigger corresponding animation( /visual effects here).<br>
+            Project uses the " Uneven Capsule " from Inigo Quilez’s page for 2D, to generate original graphic. Then,it combines the arguments of the uneven capsule with time and bands function - making the graphic become dynamic. When the sound is detected louder, the number on y coordinate goes up, and the "drop" jumps down.
+        </p>
+        </div>
+        <img src="drop1.png" alt="S1" width="588" height="420"><br>
+        <img src="drop2.png" alt="S1" width="588" height="420">
+        <br> 
+    </div>
+
+    <div style="background-color:#ffb4f5;width:800px;margin: auto;">
+        <p>sdUnevenCapsule Fuction</p>
+      <pre>float sdUnevenCapsule( vec2 p, float r1, float r2, float h )
+        {
+            p.x = abs(p.x);
+            float b = (r1-r2)/h;
+            float a = sqrt(1.0-b*b);
+            float k = dot(p,vec2(-b,a));
+            if( k < 0.0 ) return length(p) - r1;
+            if( k > a*h ) return length(p-vec2(0.0,h)) - r2;
+            return dot(p, vec2(a,b) ) - r1;
+        }</pre> 
+        <p>Main Fuction</p>
+     <pre>void main () {
+        vec2 pos = uv();
+        pos = mod(pos, vec2(pos))+pos;
+        float shape2 = sdUnevenCapsule(pos+vec2(0,-2.+bands.y*5.), 2.+2.*sin(time), 1., 5.); 
+        shape2 = ceil(shape2);
+        pos = pos + vec2(bands.x,bands.y);
+        float shape1 =circ (pos);
+       
+        
+        vec3 brightness = vec3(0.2);
+        vec3 contrast = vec3(0.2,0.23,0.34);
+        vec3 osc = vec3(0.2,0.24,0.4);
+        vec3 phase = vec3(0.3);
+        
+        float shape = shape2*100.;
+     
+        vec3 color = cosPalette(shape - time/2., brightness*4.,contrast*.5,osc*0.9,phase*10.);   
+        gl_FragColor = vec4(color,1);
+    }</pre>
+</div>
+<br><br><br><br><br><br><br><br>
+<div class="quotes">
+    <div style="background-position:center;text-align:center">
+        <a href="index.html"> Homepage</a> <br><br>
+        <a href="readingrepo.html"> Reading Repo</a> <br><br>
+        <a href="projshare.html"> Project Sharing & Others</a> <br><br>
+        <a href="watchdog.html"> First Mini Project - Watch Dog</a> <br><br>
+        <a href="simulation.html"> Unity Workshop - Simulation - Virtual Migrating</a> <br><br>
+        <a href="digitalecologies.html"> DigitalEcologies - CareBear</a> <br><br>
+        
+    </div>
+</div>
+</body>
+</html>
