@@ -72,13 +72,13 @@ a
 	-webkit-column-gap:40px; /* Safari and Chrome */
 	column-gap:40px;
 }
-.gif
+.layout2
 {
-    width:1200px;
+    width:2000x;
     margin:0 auto;
-    -moz-column-count:3; /* Firefox */
-	-webkit-column-count:3; /* Safari and Chrome */
-    column-count:3;
+    -moz-column-count:2; /* Firefox */
+	-webkit-column-count:2; /* Safari and Chrome */
+    column-count:2;
     -moz-column-gap:0px; /* Firefox */
 	-webkit-column-gap:0px; /* Safari and Chrome */
 	column-gap:0px;
